@@ -1,0 +1,13 @@
+name: ShinyRAMDemo
+title: ShinyRAMDemo
+username:
+account: lasaterwestpoint
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8068978
+bundleId: 6749470
+url: https://lasaterwestpoint.shinyapps.io/ShinyRAMDemo/
+when: 1674081918.91027
+lastSyncTime: 1674081918.91028
+asMultiple: FALSE
+asStatic: FALSE
