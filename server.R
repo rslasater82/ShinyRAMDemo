@@ -11,11 +11,20 @@ library(shiny)
 library(tidyverse)
 # Define server logic required to draw a histogram
 function(input, output, session) {
-data <- read_csv("movies.csv")
-updated_data <- eventReactive(input$Save,{
-  newrecord <- c(input$Movie,input$Rating,input$Genres, input$Date_R)
-  data <- rbind(data, newrecord)
-  })
+#data <- read_csv("movies.csv")
 
-output$movieTable <- renderDataTable(updated_data())
+#updated_data <- eventReactive(input$Save,{
+#  newrecord <- c(input$Movie,input$Rating,input$Genres, input$Date_R)
+#  data <- rbind(data, newrecord)
+#  })
+
+#Pull in existing data
+rv <- reactiveValues(data = read_csv("movies.csv"))
+
+observeEvent(input$Save,{
+    newrecord <- c(input$Movie,input$Rating,input$Genres, input$Date_R)
+    rv$data <- rbind(rv$data, newrecord)
+    })
+
+output$movieTable <- renderDataTable(rv$data)
 }
